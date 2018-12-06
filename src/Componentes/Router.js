@@ -10,6 +10,7 @@ import Header from './Header';
 import SingleProducto from './SingleProducto';
 
 
+
 class Router extends Component {
     state = {
         productos: [],
@@ -22,7 +23,7 @@ class Router extends Component {
     }
 
     busquedaProducto = (busqueda) =>{
-        if(busqueda.lenght > 3) {
+        if(busqueda.length > 3) {
             this.setState({
                 terminoBusqueda: busqueda
             })
@@ -39,7 +40,7 @@ class Router extends Component {
 
         if(busqueda !== ''){
             resultado = productos.filter(producto => (
-                producto.nombre.toLowerCase().indexOf(busqueda.toLowerCase() !== -1 )
+                producto.nombre.toLowerCase().indexOf(busqueda.toLowerCase() ) !== -1
             ))
         } else {
             resultado = productos;
@@ -60,7 +61,7 @@ class Router extends Component {
                         <Route exact path="/nosotros" component={Nosotros}/>
                         <Route exact path="/productos" render={()=>(
                             <Productos  
-                                productos={this.state.productos}
+                                productos={resultado}
                                 busquedaProducto={this.busquedaProducto}/>
                         )}/>
 

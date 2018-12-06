@@ -6,9 +6,9 @@ class Buscador extends Component {
     leerDatos = (e) => {
         //termino de busqueda
         const termino = e.target.value;
+        //console.log(termino);
 
         //enviamos por props
-
         this.props.busqueda(termino);
     }
 
